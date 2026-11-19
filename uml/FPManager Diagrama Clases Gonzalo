@@ -1,0 +1,90 @@
+@startuml FPManage
+
+class Usuario{
+    -dni:string
+    -nombre:string
+    -apellidos:string
+    -correoElectronico:string
+    -telefono:long
+}
+
+class Alumnos extends Usuario{
+    -numExpediente:long
+    -fechaNacimiento:date
+}
+
+class Profesor extends Usuario{
+    -codigoTrabajdor:string
+    -fechaIncorporacion:date
+}
+
+class CicloFormativo{
+    -codigo:number
+    -nombre:string
+    -familiProfesional:string
+
+}
+
+class Modulos{
+    -codigo:string
+    -nombre:string
+}
+
+class Matricula{
+    -cursoEscolar:string 
+}
+
+class LineasMatricula{
+    /*Si nota== -1 reuncia convocatoria
+    -notaOrdinaria:decimal
+    -notaExtraordinaria:decimal
+    -notaFinal:decimal
+    -estado:EstadoMatricula
+}
+
+class Docencia{
+    -cursoAcademico:string
+}
+
+class Aulas{
+    -numeroAula:number
+    -capacidad:number
+    -tipo:TipusAula
+}
+
+class RecursosTecnologicos{
+
+}
+
+class ReservaAula{
+    -fechaReserva:date
+    -horaInicio:string
+    -horaFin:string
+}
+
+enum TipusAula{
+    ordenadores
+    teoria
+    taller
+}
+
+enum EstadoMatricula{
+    matriculado
+    superado
+    convalidado
+    baja
+}
+
+CicloFormativo "*" o-- "*" Modulos
+Alumnos "1" *-- "1..*" Matricula
+Matricula *-- "1..*" LineasMatricula
+LineasMatricula "*"-- "1" Modulos
+Docencia "1..*" -- "1" Profesor
+Docencia "1..*" -- "1" Modulos
+Aulas "*" o-- "*" RecursosTecnologicos
+Modulos "*" -- "*" Aulas
+
+Profesor "1" -- "*" ReservaAula 
+Aulas "1" -- "*" ReservaAula 
+
+@enduml

@@ -1,0 +1,5 @@
+<label for="mail">Mail</label> <input id="mail" type="email" [(ngModel)]="mail" />
+<label for="password">Password: </label><input id="password" type="password" [(ngModel)]="passwd"/>
+{{mail()+'/'+passwd()}}
+<button type="button" (click)="logejarse()">Login</button> 
+

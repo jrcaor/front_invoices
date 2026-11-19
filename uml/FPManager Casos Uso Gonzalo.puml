@@ -1,0 +1,31 @@
+@startuml teaching_use_case
+    actor "Usuario" as aU
+    actor "Alumno" as aA
+    aU <|-- "Profesor"
+    aU <|-- "Alumno"
+    aU <|-- "Administrativa"
+    usecase "Poner notas" as ucPN
+    usecase "Reservar Aula" as ucRA
+
+    "Profesor" --> ucPN
+    "Profesor" --> ucRA
+
+    "Administrativa" --> (Matricular)
+    "Administrativa" --> (Dar de Alta)
+    (Dar de Alta) ..> (Matricular) :<<extend>>
+    "Alumno" --> (Pedir Convalidación Modulo)
+    "Alumno" --> (Pedir Baja Modulo)
+    "Alumno" --> (Renunciar Convocatoria Modulo) 
+    (Renunciar Convocatoria Modulo)  ..> ucPN :<<include>>
+    (Renunciar Convocatoria Modulo)  ..> (Buscar Alumno) :<<include>>
+    (Pedir Convalidación Modulo) ..> (Buscar Alumno) :<<include>>
+    (Pedir Baja Modulo) ..> (Buscar Alumno) :<<include>>
+    (Matricular) ..> (Buscar Alumno) :<<include>>
+    
+
+
+
+
+
+
+@enduml

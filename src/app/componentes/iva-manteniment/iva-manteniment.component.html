@@ -1,0 +1,12 @@
+<div class="ion-page">
+  <ion-grid>
+    <ion-row>
+      <ion-col>Iva</ion-col>
+    </ion-row>
+    @for (item of ives(); track item.iva; let idx = $index, e = $even) {
+    <ion-row><ion-col>{{item.iva }}</ion-col> </ion-row>
+    } @empty {
+    <p>No hi ha elements disponibles.</p>
+    }
+  </ion-grid>
+</div>
