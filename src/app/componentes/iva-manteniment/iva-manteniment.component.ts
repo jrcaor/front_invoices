@@ -19,7 +19,7 @@ export class IvaMantenimentComponent implements OnInit {
 
   ngOnInit() {
     this.serviceIva.getIves().subscribe({
-      next: (data)=> { this.ives.set(data.object as Iva[])},
+      next: (data)=> { this.ives.secd t(data.object as Iva[])},
       error:(error)=>{}
     })
   }
